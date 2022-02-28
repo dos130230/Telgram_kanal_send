@@ -15,7 +15,8 @@ form.onsubmit = (event) => {
         let res = fetch(api + message)
         fname.value = null
         lname.value = null
-        subject.textContent = null
+        country.value = null
+        subject.value = null
     } catch (error) {
         errorMessage.textContent = error.message
     }
