@@ -3,7 +3,6 @@ const chat_id = -1001569041413
 
 const api = `https://api.telegram.org/bot${token}/?chat_id=${chat_id}&text=`
 
-
 errorMessage.textContent = null
 form.onsubmit = (event) => {
     try {
@@ -12,8 +11,7 @@ form.onsubmit = (event) => {
         if (fname.value.length > 20) throw new Error("Ism uzunligi max 20")
         if (lname.value.length > 20)  throw new Error("Familya uzunligi max 20")
         if (subject.value.length > 5000)  throw new Error("Subject uzunligi max 5000")
-            let message = `-Ism: ${fname.value} %0A%0A-Familyasi: ${lname.value} %0A%0A-Qo'shimcha malumot : ${subject.value}`
-        let sticker = fetch(`https://api.telegram.org/bot${token}/sendSticker?chat_id=${chat_id}&sticker=` +country.value)
+            let message = `${fname.value} %0A%0A${lname.value} %0A%0A${country.value} %0A%0A${subject.value}`
         let text = fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=`+ message)
         fname.value = null
         fname.lname = null
@@ -23,3 +21,6 @@ form.onsubmit = (event) => {
         errorMessage.textContent = error.message
     }
 }
+
+
+
